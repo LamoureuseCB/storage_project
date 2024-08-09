@@ -45,7 +45,11 @@ values (1, 'Количество ядер', '8'),
        (4, 'Разрешение', '1920*1080');
 
 
-
+select product.name
+from product
+where product.id in (select product_characteristics.product_id
+                     from product_characteristics
+                     where product_characteristics.characteristics_name = 'Количество ядер');
 
 
 
